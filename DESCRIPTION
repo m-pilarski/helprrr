@@ -16,4 +16,6 @@ Depends: R (>= 4.1.0)
 Imports: 
     here,
     utils,
-    remotes
+    remotes,
+    fs,
+    renv
