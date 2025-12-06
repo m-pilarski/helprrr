@@ -25,6 +25,8 @@ setenv_persist <- function(..., .path_proj=here::here()){
 
   .lines_old <-
     readLines(con=.path_renviron, skipNul=TRUE) |>
+    # best?
+    (\(..x){..x[grepl("\\S\\s*=", ..x)]})() |> 
     (\(..x){regmatches(..x, regexpr("=", ..x), invert=TRUE)})() |>
     sapply(function(.x){`names<-`(.x[2], .x[1])})
 
